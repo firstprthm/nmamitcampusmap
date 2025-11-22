@@ -7,7 +7,7 @@ Features:
   1. An easy to navigate website
   2. A working map
   3. Buildings, staff rooms and teacher's details
-  4. Each class timetable
+  4. Class timetables
 ----------------------------------------------------------------------------------------
 Made with: 
   1. HTML
