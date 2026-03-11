@@ -1,260 +1,131 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
 <head>
-
-  <title>Home - Nitte Campus</title>
-  <link rel="icon" type="image/x-icon" href="D:\Pratham\Nitte Campus\nitte-logo.png">
-  
   <meta charset="UTF-8">
-  <meta name="description" content="Map of Nitte Campus">
-  <meta name="keywords" content="Nitte, NMAMIT, JKSHIM, Nitte, Karkala, NSAM">
-  <meta name="author" content="Pratham Prabhakar">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <base href="" target="contentiframe">
-  
+  <meta name="description" content="Interactive map and guide for Nitte NMAMIT campus - Nitte, Karkala">
+  <meta name="author" content="Pratham Prabhakar">
+
+  <title>NMAMIT Campus Map</title>
+
+  <link rel="icon" type="image/png" href="/assets/images/nitte_logo.png">
+
+  <link rel="stylesheet" href="/css/styles.css">
+
   <style>
+    /* Hero section — full screen banner */
+  .hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
 
-    html, body {
-      scroll-padding-top: 0;
-    }
-    
-    body {
-      margin: 0;
-      font-family: "Candara";
-      background-color: #6699cc;
-      color: #333;
-    }
-    
-    .top-container {
-      height: 100vh;
-      background-color: #007bff;
-      color: white;
-      padding: 30px;
-      text-align: center;
-      font-size: 20px;
-      
-      background-image: url('nitte_campus.png');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: 100% 100%;
-    }
-    
-    .header {
-      padding: 15px;
-      background: #FFFF00;
-      color: 0056b3;
-      text-align: center;
-      font-size: 22px;
-      font-weight: bold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-    
-    .header a {
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
-    }
-    
-    .content {
-      padding: 16px;
-      text-align: center;
-    }
-    
-    .sticky {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    
-    .sticky + .content {
-      padding-top: 80px;
-    }
-    
-    iframe {
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    
-    .map-container {
-      margin: 20px auto;
-      max-width: 95%;
-    }
+    background-image: url('/assets/images/nitte_campus.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 
-    .content-container {
-      margin: 20px auto;
-      max-width: 95%;
-      color: white;
-      font-family: "Ariel";
-    }
+  .site-header__title {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
 
-    .contentiframe {
-      background-color: #6690cc;
-      width: 100%;
-      height: 0px;
-    }
-    
-    .sidebar  {
-      width: 0;
-      position: fixed;
-      z-index: 1;
-      height: 100%;
-      top: 0;
-      right: 0;
-      background-color: #111;
-      overflow-x: hidden;
-      transition: 0.5s;
-      padding-top: 60px;
-    }
-    
-    .sidebar a {
-      padding: 8px 8px 8px 32px;
-      text-decoration: none;
-      font-size: 25px;
-      color: #818181;
-      display: block;
-      transition: 0.3s;
-    }
-    
-    .sidebar a:hover {
-      color: #f1f1f1;
-    }
-    
-    .sidebar .closebtn {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      font-size: 36px;
-    }
-    
-    .sidebar .closebtn:hover {
-      color: #f1f1f1;
-    }
-    
-    .openbtn {
-      cursor: pointer;
-      background: none;
-      padding: 10px 15px;
-      border: none;
-      position: absolute;
-      right: 30px;
-    }
-    
-    .menu-icon {
-      width: 30px;
-      height: 5px;
-      background-color: white;
-      margin: 5px 0;
-      display: block;
-    }
-    
-    .openbtn:hover {
-      background-color:#444;
-    }
-    
+  .map-container {
+    margin: 20px auto;
+    max-width: 95%;
+  }
+
+  .content-section {
+    margin: 10px auto;
+    max-width: 95%;
+  }
+
+  /* Visually hidden utility — hide from screen, not from readers */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
   </style>
-
 </head>
 
 <body>
-    
-  <div class="top-container">
-    <h1>Explore your campus like never before...</h1>
-  </div>
-  
-  <div class="header" id="myHeader">
-    <button class="openbtn" onclick="openNav()">
-      <span class="menu-icon"></span>
-      <span class="menu-icon"></span>
-      <span class="menu-icon"></span>
+
+  <!-- Hero section -->
+  <section class="hero" aria-label="Campus hero banner">
+  </section>
+
+  <div id="header-sentinel" style="height: 1px;"></div>
+
+  <!-- Site Header / Navbar -->
+  <header class="site-header" id="site-header" role="banner">
+    <a href="/index.html">
+      <img src="/assets/images/nitte_logo.png" alt="Nitte University logo — go to homepage" width="100" height="55">
+    </a>
+
+    &nbsp; <!-- Small space between logo and title -->
+
+    <span class="site-header__title">NMAMITCAMPUS MAP</span>
+
+    <button class="nav-toggle" id="nav-toggle" onclick="openSidebar()" aria-label="Open navigation menu" aria-controls="sidebar" aria-expanded="false">
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
     </button>
-    <a href="index.html" target="_self"><img src="nitte-logo.png" alt="nitte logo" style="width: 100px; height: 55px;" ></img></a>
-    <span>CAMPUS MAP</span>
-  </div>
-  
-  <div id="mySidebar" class="sidebar">
-      <button class="closebtn" onclick="closeNav()">×</button>
-      <a href="cvraman.html" onclick="openIframe(); closeNav();">C V Raman</a>
-      <a href="II-sem_teachers.html" onclick="openIframe(); closeNav();">II-Sem Teachers</a>
-      <a href="II-sem_timetable.html" onclick="openIframe(); closeNav();">II-Sem Timetable</a>
-  </div>
-  
-  <div style="width: 100%; height: 100vh;">
-    <div class="map-container">
-      <iframe src="https://www.google.com/maps/d/embed?mid=1Vg3Ah2Ry1FOxmjwWr3oZIX8ipI-WNU4&ehbc=2E312F&noprof=1" name="mapiframe" title="Embedded Google Maps" style="width: 100%; height: 40vh;"></iframe>
+  </header>
+
+  <!-- Sidebar Navigation Drawer -->
+  <nav id="sidebar" class="sidebar" aria-label="Site navigation" aria-hidden="true">
+    <button class="sidebar__close-btn" onclick="closeSidebar()" aria-label="Close navigation menu">
+      &times;
+    </button>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- Embedded Google Map -->
+    <section class="map-section" aria-labelledby="map-heading">
+      <h2 id="map-heading" class="visually-hidden">Campus Map</h2>
+      
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/d/embed?mid=1Vg3Ah2Ry1FOxmjwWr3oZIX8ipI-WNU4&ehbc=2E312F&noprof=1"
+          title="Nitte campus location on Google Maps" loading="lazy" allowfullscreen
+          style="width: 100%; height: 45vh; border: none; border-radius: 10px;"></iframe>
+      </div>
+    </section>
+
+    <!-- Content hint -->
+    <div class="content-hint" style="text-align: center; color: white; padding: 16px;">
+      <p>Use the menu (top right) to explore buildings and timetables.</p>
     </div>
-    
-    <div class="content-container">
-      <center><p><h2>Use the menu bar on top right to see more...</h2></p></center>
-      <iframe src="" id="contentIframe" class="contentiframe" name="contentiframe"></iframe>
-    </div>
-    
-    <footer style="bottom: 10px;">
-      <center>Thank You</center>
-    </footer>
-  </div>
-   
-  
-  <script>
-    
-    window.onscroll = function() { myFunction(); };
-    var header = document.getElementById("myHeader");
-    var sticky = header.offsetTop;
-    function myFunction() {
-      if (window.pageYOffset > sticky) {
-        header.classList.add("sticky");
-      } else {
-        header.classList.remove("sticky");
-      }
-    }
-    
-    function openNav() {
-      document.getElementById("mySidebar").style.width = "250px";
-    }
-    
-    function closeNav() {
-      document.getElementById("mySidebar").style.width = "0";
-    }
-    
-    function smoothScrollTo(element, duration=800) {
-      const targetPosition = element.offsetTop;
-      const startPosition = window.pageYOffset;
-      const distance = targetPosition - startPosition;
-      let startTime = null;
 
-      function animation(currentTime) {
-        if (startTime === null) startTime = currentTime;
-        const timeElapsed = currentTime - startTime;
-        const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
-        window.scrollTo(0,run);
+    <!-- Content iframe: loads pages from the sidebar nav -->
+    <section class="content-section" aria-label="Page content">
+      <iframe id="content-frame" class="content-frame" src="" title="Page content" aria-live="polite"></iframe>
+    </section>
+  </main>
 
-        if (timeElapsed < duration) requestAnimationFrame(animation);
-      }
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <p id="footer-credits" class="site-footer__credits">
+      <!-- Filled by buildFooterCredits() in main.js -->
+    </p>
+    <p>Thank you &nbsp;|&nbsp; &copy; 2026 All rights reserved.</p>
+  </footer>
 
-      function easeInOutQuad(t, b, c, d) {
-        t /= d / 2;
-        if (t < 1) return c / 2 * t * t + b;
-        t--;
-        return -c / 2 * (t * (t-2) - 1) + b;
-      }
-
-      requestAnimationFrame(animation);
-    }
-
-    function openIframe() {
-      document.getElementById("contentIframe");
-      contentIframe.style.height = "1000px";
-      smoothScrollTo(contentIframe, 1200);
-    }
-
-  </script>
+  <script src="/js/data.js"></script>
+  <script src="/js/main.js"></script>
 
 </body>
 </html>

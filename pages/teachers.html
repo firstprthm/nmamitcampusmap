@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Directory of faculty at NMAMIT Nitte — names, departments, and locations">
+  <meta name="author" content="Pratham Prabhakar">
+
+  <title>Faculty Directory — NMAMIT Campus</title>
+
+  <link rel="icon" type="image/png" href="/assets/images/nitte_logo.png">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body style="padding: 20px;">
+  <main>
+    <h1 style="text-align: center; color: white;">Faculty Directory</h1>
+
+    <div style="overflow-x: auto;">
+      <table class="teachers-table" aria-label="Faculty directory with names, departments and room locations">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <!--
+              WHY scope="col": Tells screen readers this header
+              applies to the entire column below it.
+              This is a WCAG 1.3.1 requirement for data tables.
+            -->
+            <th scope="col">Group</th>
+            <th scope="col">Faculty Name</th>
+            <th scope="col">Department</th>
+            <th scope="col">Location</th>
+          </tr>
+        </thead>
+
+        <tbody id="teachers-table-body">
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="/js/data.js"></script>
+  <script src="/js/main.js"></script>
+
+</body>
+</html>
