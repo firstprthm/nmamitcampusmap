@@ -5,15 +5,14 @@ link to website: <a href="https://nittecampus.pages.dev">nittecampus.pages.dev</
 ----------------------------------------------------------------------------------------
 Features: 
   1. An easy to navigate website
-  2. A working map
-  3. Buildings, staff rooms and teacher's details
-  4. Class timetables
+  2. Buildings, staff rooms and teacher's details
+  3. Class timetables
 ----------------------------------------------------------------------------------------
-Made with: 
-  1. HTML
-  2. CSS
-  3. JavaScript
-----------------------------------------------------------------------------------------
+
+
+
+
+Created by: <br />
 
 Mentor:<br />
   Dr. Naganna Chetty
